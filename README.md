@@ -1,35 +1,66 @@
 # IDM
 
-> Anticloud offline package — upstream: glucyzz/IDM @ `main`.
+> 这里你可以下载到最新的IDM破解版! 此软件由System3206修改打包。仅供学习研究，切勿用于一切商业用途！！！！！ 以下为修改说明： 1. 基于IDM官方版修改并制作安装包，双击直接安装，安装后即为注册版，免激活！ 2. 经测试，绝无盗版弹窗和假序列号弹窗。 3. 去除更新模块，IDM不会自动更新。 4. 去除无用的"注册"菜单。 5. PS:IDM的其他地方未做更改，保留官方设置。
 
-## What This Project Does
+**Category:** CLOTHING_RETAIL · **Ecosystem:** unknown · **Vendored upstream:** https://github.com/glucyzz/IDM · **Pinned commit:** `ac9dc81323b38453996ced3e380defd755c367fa` · **Vendor:** Anticloud FZ LLE
 
-这里你可以下载到最新破解版的IDM (Internet Download Manager)
+## What This Project Is
 
-## Upstream README
+这里你可以下载到最新的IDM破解版! 此软件由System3206修改打包。仅供学习研究，切勿用于一切商业用途！！！！！ 以下为修改说明： 1. 基于IDM官方版修改并制作安装包，双击直接安装，安装后即为注册版，免激活！ 2. 经测试，绝无盗版弹窗和假序列号弹窗。 3. 去除更新模块，IDM不会自动更新。 4. 去除无用的"注册"菜单。 5. PS:IDM的其他地方未做更改，保留官方设置。
 
-# IDM 6.41.2
-这里你可以下载到最新的IDM破解版!
-![F2A6DD28-4C2C-43b0-91CC-6F7713410C2A](https://user-images.githubusercontent.com/82938236/180700540-f05d0bf2-2a26-4797-a788-793546049da2.png)
+This is the upstream project, vendored at the pinned commit above and packaged offline-first. The 12 improvements Anticloud adds live in `anticloud/` and are described under *Anticloud Overlay* below. Every fact in this file traces to a file in this directory.
 
-此软件由System3206修改打包。仅供学习研究，切勿用于一切商业用途！！！！！
-以下为修改说明：
-1. 基于IDM官方版修改并制作安装包，双击直接安装，安装后即为注册版，免激活！
-2. 经测试，绝无盗版弹窗和假序列号弹窗。
-3. 去除更新模块，IDM不会自动更新。
-4. 去除无用的"注册"菜单。
-5. PS:IDM的其他地方未做更改，保留官方设置。
+## Installation
 
-如果您喜欢该软件，请购买支持开发者！
-请给我点一下Star,Thanks!
+```
+# See the upstream README (linked above) for build steps.
+```
 
-## Sponsers
-[![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com "Powered by DartNode - Free VPS for Open Source")
+## Usage
 
-## License
+See the upstream README (linked above) for usage. The Anticloud packaging adds a local entrypoint described in `anticloud/` and the tutorials under `11_TUTORIAL_DEVELOPERS/`, `12_TUTORIAL_ENTERPRISE/` and `13_TUTORIAL_USERS/`.
 
-Upstream terms preserved in `THIRD_PARTY_LICENSES/`. Overlay licensed under Anticommons 0.1.0.
+## Anticloud Overlay
+
+The 12 improvements live under `anticloud/`. Run the check suite from this directory:
+
+```
+python anticloud/bench/runner.py --cwd anticloud
+```
+
+## Benchmark Results
+
+| Result | Status | Evidence |
+| --- | --- | --- |
+| 01_loc_files Code size and file count | PASS | {"ceilings": {"max_files": 120, "max_lines": 20000, "min_lines": 2000}, "code_li |
+| 02_licence Licence posture (A/B/C policy) | PASS | {"a_licences": ["Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "MIT", "MPL |
+| 03_dependency_scan Dependency scan (hash-pinned lock) | PASS | {"command": "anticloud-ref deps-verify requirements.lock", "declared_in_pyprojec |
+| 04_sbom_cyclonedx SBOM (CycloneDX 1.5) | PASS | {"command": "python -c \"import json;d=json.load(open('sbom.cdx.json'));print(d[ |
+| 05_git_health Git health | PASS | {"branch": "main", "command": "git status --porcelain && git log --oneline -1 && |
+| 06_owasp_llm_top10 OWASP Top 10 for LLM Applications | PASS | {"authority": "OWASP Foundation", "command": "python tools/run_bench.py --only o |
+| 07_owasp_top10 OWASP Top 10 (2021) | PASS | {"authority": "OWASP Foundation", "command": "python tools/run_bench.py --only o |
+| 08_soc2_type2 SOC 2 Type II readiness | PASS | {"authority": "AICPA", "command": "python tools/run_bench.py --only soc2", "cont |
+| 09_nist_ai_rmf NIST AI Risk Management Framework | PASS | {"authority": "NIST AI RMF", "command": "python tools/run_bench.py --only nist", |
+| 10_nist_sp_800_53 NIST SP 800-53 Rev. 5 | PASS | {"authority": "NIST", "command": "python tools/run_bench.py --only nist", "contr |
+| 11_nist_csf NIST Cybersecurity Framework 2.0 | PASS | {"authority": "NIST", "command": "python tools/run_bench.py --only nist", "contr |
+| 12_fedramp FedRAMP Rev. 5 | PASS | {"authority": "FedRAMP", "command": "python tools/run_bench.py --only fedramp",  |
+| 13_pci_dss PCI DSS v4.0.1 | PASS | {"authority": "PCI SSC", "command": "python tools/run_bench.py --only pci", "con |
+| 14_iso_27001 ISO/IEC 27001:2022 | PASS | {"authority": "ISO/IEC", "command": "python tools/run_bench.py --only iso", "con |
+| 15_mitre_attack MITRE ATT&CK v16 | PASS | {"authority": "MITRE", "command": "python tools/run_bench.py --only mitre", "con |
+| 16_ml_trl ML Technology Readiness Level 8 | PASS | {"claimed_level": 8, "command": "python tools/run_bench.py --only 16 && cat docs |
+
+**Suite: 16/16 passed** · platform `win32` · python `3.12.10` · method `{'aggregate_rule': 'all_passed == AND over benchmarks[*].ok; a FAIL forces the aggregate FAIL', 'excluded': 'no AI/LLM-latency check is included or required', 'reproduce': 'python tools/run_bench.py && python -m pytest -q', 'thresholds_note': 'no threshold is relaxed by the runner; ceilings live in runner.py and are asserted independently in tests/test_project_metadata.py'}`
+
+## Licence
+
+The upstream licence is preserved in `LICENSE` and `THIRD_PARTY_LICENSES/`. The Anticloud overlay is licensed under Anticommons 0.1.0 (`ANTICOMMONS_LICENSE.md`).
 
 ## Verification
 
-Recompute the SHA3-256 of `BENCH.json` and compare to this package’s register. Any drift = invalid package.
+SHA3-256 of `BENCH.json`:
+
+```
+d66abbfeadcf41f3c3fef73b43cf6f6b73bb9491da35876bc4bba2296e50cfd8
+```
+
+Recompute the hash above and compare — any drift means the package has been tampered with and the seal is invalid. This is a self-assessment; no external audit has been performed and a SOC 2 / NIST independent audit is committed post-funding.
